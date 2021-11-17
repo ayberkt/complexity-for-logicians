@@ -1,3 +1,8 @@
+---
+title: PRF
+author: Ayberk Tosun
+---
+
 Originally written as an assignment in Nils Anders Danielsson's Models of
 Computation course.
 
