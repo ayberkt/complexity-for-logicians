@@ -50,7 +50,7 @@ mutual
   ⟦ suc        ⟧ (nil , n)  = 1 + n
   ⟦ proj i     ⟧ ρ          = ρ [ i ]
   ⟦ comp f gs  ⟧ ρ          = ⟦ f ⟧ (⟦ gs ⟧⋆ ρ)
-  ⟦ rec f g    ⟧ (ρ , n)    = natrec (⟦ f ⟧ ρ) (λ n r → ⟦ g ⟧ ((ρ , r) , n)) n
+  ⟦ rec  f g   ⟧ (ρ , n)    = natrec (⟦ f ⟧ ρ) (λ n r → ⟦ g ⟧ ((ρ , r) , n)) n
 
   ⟦_⟧⋆ : ∀ {m n} → Vec (PRF m) n → Vec ℕ m → Vec ℕ n
   ⟦ nil     ⟧⋆ ρ = nil
