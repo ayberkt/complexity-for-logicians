@@ -83,3 +83,12 @@ PRF-add-correct m (suc n) =
   suc (m + n)                           ≡⟨ sym (+-suc m n)                ⟩
   m + suc n ∎
 ```
+
+```agda
+private
+  variable
+    n : ℕ
+
+isPrimitive : (Vec ℕ n → ℕ) → Type₀
+isPrimitive {n = n} f = Σ[ p ∈ PRF n  ] ⟦ p ⟧ ≡ f
+```
