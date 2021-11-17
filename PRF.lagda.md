@@ -3,6 +3,8 @@ title: PRF
 author: Ayberk Tosun
 ---
 
+## Preamble and Some Bureaucratic Things
+
 Originally written as an assignment in Nils Anders Danielsson's Models of
 Computation course.
 
@@ -13,6 +15,7 @@ open import Data.Nat
 open import Data.Nat.Properties
 open import Data.Fin using (Fin; zero; suc)
 open import Relation.Binary.PropositionalEquality hiding ([_])
+open import Data.Product
 
 Type₀ = Set₀
 ```
