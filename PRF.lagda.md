@@ -127,3 +127,12 @@ pa-eq₂ _ _ = refl
 ack : Vec ℕ 2 → ℕ
 ack ((nil , m) , n) = peter-ackermann m n
 ```
+
+```agda
+pa-not-primitive : (Σ[ e ∈ PRF 2 ] ((m n : ℕ) → ⟦ e ⟧ ((nil , m) , n) ≡ ack ((nil , m) , n))) → ⊥
+pa-not-primitive (e , φ) = {!!}
+
+pa-not-PRF-definable : isPrimitive ack → ⊥
+pa-not-PRF-definable (e , p) =
+  pa-not-primitive (e , (λ m n → subst (λ - → - ((nil , m) , n) ≡ ack ((nil , m) , n)) (sym p) refl))
+```
