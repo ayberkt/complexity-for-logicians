@@ -96,3 +96,34 @@ private
 isPrimitive : (Vec ℕ n → ℕ) → Type₀
 isPrimitive {n = n} f = Σ[ p ∈ PRF n  ] ⟦ p ⟧ ≡ f
 ```
+
+## Peter-Ackermann
+
+```agda
+iter : {A : Set} → ℕ → (A → A) → A → A
+iter zero    f x = x
+iter (suc n) f x = f (iter n f x)
+
+succ : ℕ → ℕ
+succ = suc
+
+peter-ackermann : ℕ → ℕ → ℕ
+peter-ackermann zero    = λ n → suc n
+peter-ackermann (suc m) = λ n → iter (suc n) (peter-ackermann m) 1
+
+pa-eq₀ : (n : ℕ) → peter-ackermann 0 n ≡ 1 + n
+pa-eq₀ _ = refl
+
+open ≡-Reasoning
+
+pa-eq₁ : (m : ℕ) → peter-ackermann (suc m) 0 ≡ peter-ackermann m 1
+pa-eq₁ _ = refl
+
+pa-eq₂ : (m n : ℕ) → peter-ackermann (suc m) (suc n) ≡ peter-ackermann m (peter-ackermann (suc m) n)
+pa-eq₂ _ _ = refl
+```
+
+```agda
+ack : Vec ℕ 2 → ℕ
+ack ((nil , m) , n) = peter-ackermann m n
+```
