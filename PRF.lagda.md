@@ -12,10 +12,14 @@ Computation course.
 module PRF where
 
 open import Data.Nat
+open import Data.Bool hiding (_≤_; _≤?_)
 open import Data.Nat.Properties
+open import Data.Empty
+open import Data.Unit hiding (_≤_)
 open import Data.Fin using (Fin; zero; suc)
 open import Relation.Binary.PropositionalEquality hiding ([_])
 open import Data.Product
+open import Relation.Nullary
 
 Type₀ = Set₀
 ```
